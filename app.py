@@ -65,6 +65,15 @@ def inject_user():
 def page_not_found(e):
     return render_template('404.html'), 404
 
+@app.errorhandler(400)
+def illegal_request(e):
+    return render_template('400.html'), 400
+
+@app.errorhandler(505)
+def unable_handel(e):
+    return render_template('505.html'), 505
+
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True) #primary_k 设置主键
     name = db.Column(db.String(20))
