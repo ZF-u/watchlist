@@ -79,7 +79,7 @@ def admin(username, password):
 
     user = User.query.first()
     if user is not None:
-        click.echo('Updationg user...')
+        click.echo('Updating user...')
         user.username = username
         user.set_password(password)
     else:
@@ -191,7 +191,7 @@ def index():
         movie = Movie(title = title, year = year)
         db.session.add(movie)
         db.session.commit()
-        flash('Item created')
+        flash('Item created.')
         return redirect(url_for('index')) #url_for 重定向回index主页
 
     movies = Movie.query.all()
